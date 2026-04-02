@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment
+.env
+
+# Node
+journal-app/node_modules/
+journal-app/dist/
+
+# Database
+*.db
+*.sqlite
+.adk/
+
+# Vite cache
+.vite/
+
+# OS
+.DS_Store

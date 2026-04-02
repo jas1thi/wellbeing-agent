@@ -1,0 +1,8 @@
+.venv
+__pycache__
+*.pyc
+journal-app/node_modules
+journal-app/dist
+.git
+.env
+*.db

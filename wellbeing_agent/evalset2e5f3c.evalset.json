@@ -1,0 +1,151 @@
+{
+  "eval_set_id": "evalset2e5f3c",
+  "name": "evalset2e5f3c",
+  "eval_cases": [
+    {
+      "eval_id": "case8dba2a",
+      "conversation": [
+        {
+          "invocation_id": "e-50886dbc-5988-44d8-b8a8-5ca8cf2048ce",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Hi"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Hey there! It's good to see you. How was your day? What would you say was the highlight of it, or something that really stood out to you?"
+              },
+              {
+                "text": "",
+                "thought_signature": "EuIDCt8DAb4-9vsdvNQQbLdv2IS4WbOP8QMIU5bSFkSRgttNNQ4b4UnzhmnjFudy3qsiEYRqtq74aHFMkD8k-hsZCOomLmVuB7b0sKmvQTZxrAMZH0RJQxv0zTc8owxnG8_pAWasseLLbz-xQSm177oHHKj90gLGFYu35GY4AjlY-fk08N5GSCtdNLMVpD2SCHWx_Clrwx6vhCveVCIyVHFLIrRFa6eA2GUmsmEuKsYiDEINd1CHIOtFP00QuBcsrTo_x_VjDeeDpFYBRNgwRHjlsLILIYOq1vE061P3GWr_rEp9GMCrK_MB1E6QMVwy98m1gnYCp8bBBpFN7xJRMxZgRlPsfPTmqjnX463oiR7MsnT6Ty52NaYYOoBWo38InXOQiy_9sDfollB5MikYWY8KTUhGl54Wc_98yZFm4LMM8srEmQ1u9zAR69eSRsLgVOcuduZqWXpefl-KERfENGZnbl9EJjDIrd6KfV2QOsbborOk5PE_YsG4zJd4ZxRFOZiBBXg5fRHBRCZ8RPrt-ZvXL5Fr8a-Qafc5Oj26gjMi_R2h6xg_kzqdMaWaJCSGVDYwXYhQaftUCkE9Bd_jbVsoz-IRwZzYJgKlMXqtePhI6Xvg7grdzgNAgMnSq0JejlX1aTo="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1773714037.7336829
+        },
+        {
+          "invocation_id": "e-128fc819-1629-499b-ad18-5de24f58fe13",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Yeah, it was good. I went for a run, and I have an itnervirwe today. "
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "A run and an interview—that sounds like a big day! How are you feeling heading into (or coming out of) that interview? Is it more \"excited energy\" or \"pre-interview jitters\"?"
+              },
+              {
+                "text": "",
+                "thought_signature": "ErYECrMEAb4-9vuD1aqhIBozjvG2plXptf2ZbhhatXNNQToy-RdHCZ7_IP2P1lt8hohR3Yrcg1s7afyKmYAArJjpZ9Q310wDV0Sc1R1UHAZtdCfKjw1P09_N5kAdKUmS_v87Y1odyIXysv5iAPIrWTzmKN-i3QbJQdqyZnl2tu8FZHCjSPhecLgIlSXltlo7wLSgytMmBwUP8g6W0aX032oik7pm5wuVh17LkMp_sgaYYGG82_W-LtRIs4BoGKeXnBaS9NOTTizbC3zKPu3daqkwnlygjEhEyItZT8lCzoazPKSTatMI5UxYMlESgau4b_-AZZyLhg5MQSisDlEcAM9QJQ2TkH6GFCD28m80rtFaOrWgC787IxmGgmuQJDGuF6CIqsvmavNJe_o-7RgqHOQwB6Hnq9QTl6BKIrFCmoNgtGqpsrbIR-DWVYMfFjH40SCjGfWW9CD__Ws669SdiLZ0odfgZchTWsf9gK6kOr43EkBQwC-b_OobBc4lB0jgJjBcKN4PLXlE89xMrDWfLQFY9cYiiAyvO962B34388NZ8LgY5Gyfudc9x8G7oFhQxr3acmgo-5Bb-6tUHTFDbW1-pt6QzWk2H0K4W0hf0KD2IQ42mOisON3OykqF6Nd4yvmWBe4uHCsOtoui52_f08726cYN5nq7sus8aUhjBtTivvj7nd9Z8cwUO5qk5_tRsFSUl2y-GCoVytqpepI2kIR-Z5u8JyDFwOg2s0evv4MNGs5UVawrxxQ="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1773714050.111729
+        },
+        {
+          "invocation_id": "e-0fab08d2-e7ad-4473-87ec-5ca896d3c440",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Yeah, I am positive and hopeful, had some matcha for good luck, everything is good. "
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "That sounds like a fantastic, high-vibe day! Between the runner's high and the \"matcha luck,\" it sounds like you've set yourself up for success with that interview. I'm rooting for you!\n\nI've saved your journal entry for today and created a little cartoon of your highlights to capture that positive energy. You can find them in your records.\n\nI hope you have a relaxing evening. Talk soon!"
+              },
+              {
+                "text": "",
+                "thought_signature": "EuABCt0BAb4-9vuCv3VixFqsZNpC9iquY_QZqOmiTi1_aldlHbJPpGFb9RoUr4lyr7fs4fe7bH7CBU2TDKPjpJFagjmpQLb8-pPqznfAivqMT7qsubMP2OQLzj7Ra6Kvn08xvI48rYGohYmORvr5SaUlew-EfR5JwHOPFO51rmWelCPQZ6wqvl3ygsWqg7YcqGgBmQD4DvCFGMog_Wy00ZbMBB2v-hl1Pm5bKXk5sI7kOpNj0xfFiPUX4E1LrnmzE5mXoxNUGoDJgFjSLbBgvrYaZAxd2IHylpU4BcxlPa4fn2U="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "xwaz4b8r",
+                        "args": {
+                          "entry": "# Wellbeing Journal - 2025-05-14\n\n## Mood\nPositive and Hopeful 🌟\n\n## Highlights\n- Went for a morning run.\n- Had a job interview.\n- Enjoyed some matcha for good luck.\n\n## Feelings\nI'm feeling really optimistic about how things are going. The run felt great, and the interview process has me feeling hopeful for the future. The matcha was a nice little ritual to stay centered.\n\n---\n![Day Highlights](day_cartoon.png)\n"
+                        },
+                        "name": "save_journal"
+                      },
+                      "thought_signature": "EuAFCt0FAb4-9vtHkwBZVFXvqC6TN0Yv4smYFozSPpfbOPPHFZNRzW4JCG-M8uxqdYop2KZ-7HCw9w75P0UtLUlKma8Gz2vrtSzPQxVPFjiAcE6Mocqzv5-qUUq97r2udL1WcQN_1i6NyTLjKB6I_sYNeRHtc4_zBdnuKRPrInqTT-vOU17KysaYa_mUk2r8Br-sL8-uDVc4e1M8VfiGLyfgEhb9a2Nj_tF1npIqQSFyUhh_wTk0pPgtAYfk_rIdeJUMBZueusAZ0Ij_M3HqqHjlBJh_XfdsJm7jLeIyICzieY9kzm63EZaze2DnCxH9acR_G6Wl8_8sepMLwRo8KwnG8U3uCEIdFW1BPsCJQ90LQuARcugqrgqIw8EaY-NaRwSluy09rE1_WvxMBcKe1-0DoNoGqo05ZFoXPU6kmO_JDyA0x9IivajEl8nqtkyaMnUhUT45oAS1XErQU0hm-uSPr8tpeD076oJTngGGIha3QY8RAYiI-1_ZYIdD7dfpjdGJpz3JwxE1-_IQ2BUgbmnOVJPGFcKwYn4N1tdfPLJwcADhrQhFrI4xs83PLXZBDera3rtrTFryVa8GUnYCAs9JDffWMC38tbEs-_XnVJzLJquLDUVIDjgWWMgDk44ltUK-Nq0hEQ6A0enXOWQpyCailu8GoLuFeS1H7pSmwNGji1OAaqkiRdBTz6Oqljf888sGau3c6Gd0s1eabyob0Y58dHeaWnteuvhjLeM4iQbHtxxi-jioDntJIyXkN6RHKiY_BQVKOQJtfnM53xOsn0_PJNx6jz0EVFotraKFYcw4UDJohX8VEw0QJhxb2F5GXCd0TBRyOOEqCSXjWDa9fEAG8_WROfeuQli2ocA0LiM6dIsd4seI3jGuNALabQrGKL4g_aYVm7IQJRAfv2DpouVWnjQaHgzrPZzPF3S3JSL28fIuy9pgb-sUA1z1U6C6WVc2Dr5E6-Gv2AZIW0IoVAuTNw=="
+                    },
+                    {
+                      "function_call": {
+                        "id": "395fpdim",
+                        "args": {
+                          "summary": "A person looking energetic and happy after a run, sipping a cup of green matcha tea, with a 'Job Interview' calendar invite in the background, feeling hopeful and positive."
+                        },
+                        "name": "generate_day_cartoon"
+                      }
+                    },
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "xwaz4b8r",
+                        "name": "save_journal",
+                        "response": {
+                          "result": "Journal entry saved to journals/2026-03-16.md"
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "395fpdim",
+                        "name": "generate_day_cartoon",
+                        "response": {
+                          "result": "Cartoon saved to journals/2026-03-16-cartoon.png"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1773714070.946052
+        }
+      ],
+      "session_input": {
+        "app_name": "wellbeing_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1773715442.489234
+    }
+  ],
+  "creation_timestamp": 1773715439.163085
+}

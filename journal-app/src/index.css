@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --color-brand-50: #f5f0ff;
+  --color-brand-100: #ede5ff;
+  --color-brand-200: #ddd0ff;
+  --color-brand-300: #c4abff;
+  --color-brand-400: #a67dff;
+  --color-brand-500: #8b4dff;
+  --color-brand-600: #7c2dff;
+  --color-brand-700: #6d1feb;
+  --color-brand-800: #5b19c5;
+  --color-brand-900: #4b16a1;
+  --color-brand-950: #2d0a6e;
+  --color-surface: #0f0a1a;
+  --color-surface-raised: #1a1128;
+  --color-surface-overlay: #241a36;
+  --color-border: #2d2240;
+  --color-border-subtle: #1f1730;
+  --color-text-primary: #f0ecf7;
+  --color-text-secondary: #a89cc4;
+  --color-text-muted: #6b5f85;
+  --color-mood-great: #10b981;
+  --color-mood-good: #6ee7b7;
+  --color-mood-okay: #fbbf24;
+  --color-mood-low: #f87171;
+  --color-mood-anxious: #f59e0b;
+  --color-mood-mixed: #a78bfa;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Hide scrollbar on mood stories */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth page transitions */
+#root {
+  min-height: 100vh;
+}

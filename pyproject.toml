@@ -1,0 +1,14 @@
+[project]
+name = "wellbeing-agent"
+version = "0.1.0"
+description = "A daily wellbeing check-in and journaling agent built with Google ADK"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "faiss-cpu>=1.13.2",
+    "google-adk>=1.27.1",
+    "greenlet>=3.3.2",
+    "python-dotenv>=1.2.2",
+    "sentence-transformers>=5.3.0",
+    "uvicorn>=0.42.0",
+]
