@@ -6,3 +6,6 @@ journal-app/dist
 .git
 .env
 *.db
+.vite
+.adk
+docs

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: wellbeing-agent
+    runtime: docker
+    plan: starter
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: JOURNAL_DIR
+        value: ./journals
+      - key: PORT
+        value: "8000"

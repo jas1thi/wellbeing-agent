@@ -10,23 +10,22 @@ RUN npm run build
 FROM python:3.12-slim AS backend
 WORKDIR /app
 
-# Install uv for fast Python package management
+# Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 # Install Python deps
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-dev
+RUN uv sync --frozen
 
 # Copy application code
 COPY wellbeing_agent/ wellbeing_agent/
 COPY main.py .
-COPY .env.example .env.example
 
 # Copy built frontend
 COPY --from=frontend /app/journal-app/dist journal-app/dist/
 
-# Create journals directory
-RUN mkdir -p journals
+# Copy journal entries + images
+COPY journals/ journals/
 
 # Set environment
 ENV PYTHONUNBUFFERED=1
