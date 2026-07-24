@@ -1,20 +1,9 @@
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 
-import faiss
-import numpy as np
-from sentence_transformers import SentenceTransformer
-
-_model = None
 _index_cache: dict | None = None
-
-
-def _get_embedder() -> SentenceTransformer:
-    global _model
-    if _model is None:
-        _model = SentenceTransformer("all-MiniLM-L6-v2")
-    return _model
 
 
 def _get_fingerprint(journal_dir: Path) -> str:
@@ -25,7 +14,11 @@ def _get_fingerprint(journal_dir: Path) -> str:
 
 
 def _build_index() -> dict | None:
-    """Build and cache the FAISS index. Returns None if no content."""
+    """Build and cache the chunked journal corpus. Returns None if no content.
+
+    Lightweight keyword index (no ML models) so the app runs in low-memory
+    environments. Chunks are the same '---'-delimited sections used before.
+    """
     journal_dir = _get_journal_dir()
     fingerprint = _get_fingerprint(journal_dir)
 
@@ -56,16 +49,8 @@ def _build_index() -> dict | None:
     if not chunks:
         return None
 
-    embedder = _get_embedder()
-    chunk_embeddings = embedder.encode(chunks, normalize_embeddings=True)
-
-    dim = chunk_embeddings.shape[1]
-    index = faiss.IndexFlatIP(dim)
-    index.add(np.asarray(chunk_embeddings, dtype=np.float32))
-
     _index_cache = {
         "fingerprint": fingerprint,
-        "index": index,
         "chunks": chunks,
         "sources": sources,
     }
@@ -76,6 +61,37 @@ def invalidate_index():
     """Clear the cached index (called after saving a new journal)."""
     global _index_cache
     _index_cache = None
+
+
+def _tokenize(text: str) -> list[str]:
+    return re.findall(r"[a-z0-9']+", text.lower())
+
+
+def _score_chunk(chunk: str, query_tokens: list[str], query: str) -> float:
+    """Keyword relevance score for a chunk against the query."""
+    chunk_lower = chunk.lower()
+    chunk_tokens = _tokenize(chunk)
+    if not chunk_tokens:
+        return 0.0
+    token_counts: dict[str, int] = {}
+    for t in chunk_tokens:
+        token_counts[t] = token_counts.get(t, 0) + 1
+
+    score = 0.0
+    matched_terms = 0
+    for qt in query_tokens:
+        tf = token_counts.get(qt, 0)
+        if tf:
+            matched_terms += 1
+            # Diminishing returns on repeated terms; normalize by chunk length.
+            score += (1.0 + 0.5 * (tf - 1)) / (1.0 + len(chunk_tokens) / 100.0)
+
+    # Bonus for matching more distinct query terms, and for exact phrase hits.
+    if query_tokens:
+        score *= 1.0 + matched_terms / len(query_tokens)
+    if len(query.strip()) >= 3 and query.strip().lower() in chunk_lower:
+        score += 2.0
+    return score
 
 
 def _get_journal_dir() -> Path:
@@ -149,9 +165,9 @@ def read_journal(date: str = "") -> str:
 
 
 def search_journals(query: str, top_k: int = 3) -> str:
-    """Search through all journal entries using semantic similarity.
+    """Search through all journal entries by keyword relevance.
 
-    Uses FAISS to find the most relevant journal passages for a given query.
+    Ranks journal passages by how well they match the query's keywords.
 
     Args:
         query: The search query (e.g. "days I felt anxious", "morning runs").
@@ -164,18 +180,26 @@ def search_journals(query: str, top_k: int = 3) -> str:
     if cache is None:
         return "No journal content to search."
 
-    index = cache["index"]
     chunks = cache["chunks"]
     sources = cache["sources"]
 
-    embedder = _get_embedder()
-    query_embedding = embedder.encode([query], normalize_embeddings=True)
+    query_tokens = _tokenize(query)
+    if not query_tokens:
+        return "No journal content to search."
 
-    k = min(top_k, len(chunks))
-    scores, indices = index.search(np.asarray(query_embedding, dtype=np.float32), k)
+    scored = [
+        (_score_chunk(chunk, query_tokens, query), idx)
+        for idx, chunk in enumerate(chunks)
+    ]
+    scored = [s for s in scored if s[0] > 0]
+    scored.sort(key=lambda x: x[0], reverse=True)
 
+    if not scored:
+        return "No matching journal entries found."
+
+    top = scored[: min(top_k, len(scored))]
     results: list[str] = []
-    for rank, (idx, score) in enumerate(zip(indices[0], scores[0]), 1):
+    for rank, (score, idx) in enumerate(top, 1):
         results.append(
             f"### Result {rank} (date: {sources[idx]}, score: {score:.3f})\n{chunks[idx]}"
         )
