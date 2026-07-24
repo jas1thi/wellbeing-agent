@@ -27,10 +27,13 @@ if __name__ == "__main__":
 
     from wellbeing_agent.api import router as api_router
 
+    # web=False: don't serve ADK's built-in Dev UI (it would hijack "/" and
+    # redirect to /dev-ui). We serve our own journal SPA at "/" instead. The
+    # agent run endpoints (/run_sse, /apps/.../sessions) are still registered.
     app = fast_api.get_fast_api_app(
         agents_dir=os.path.dirname(os.path.abspath(__file__)),
         session_service_uri="",
-        web=True,
+        web=False,
     )
 
     app.add_middleware(
