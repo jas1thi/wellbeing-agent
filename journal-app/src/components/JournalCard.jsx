@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { assetUrl } from '../lib/api'
 
 const MOOD_COLORS = {
   great: 'bg-emerald-400',
@@ -42,7 +43,7 @@ export default function JournalCard({ journal, index = 0 }) {
         {thumbnail ? (
           <div className="aspect-[16/10] overflow-hidden bg-surface-overlay">
             <img
-              src={`/journals/${thumbnail}`}
+              src={assetUrl(thumbnail)}
               alt=""
               className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
               loading="lazy"

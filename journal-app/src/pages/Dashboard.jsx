@@ -5,6 +5,7 @@ import PageWrapper from '../components/PageWrapper'
 import MoodTimeline from '../components/MoodTimeline'
 import useJournals from '../hooks/useJournals'
 import useStats from '../hooks/useStats'
+import { assetUrl } from '../lib/api'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 10 },
@@ -91,7 +92,7 @@ export default function Dashboard() {
                       className="aspect-square rounded-xl overflow-hidden bg-surface-overlay group"
                     >
                       <img
-                        src={`/journals/${j.thumbnail}`}
+                        src={assetUrl(j.thumbnail)}
                         alt=""
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
@@ -122,7 +123,7 @@ function FeedCard({ journal }) {
     >
       {thumbnail ? (
         <div className="w-12 h-12 rounded-lg overflow-hidden bg-surface-overlay shrink-0">
-          <img src={`/journals/${thumbnail}`} alt="" className="w-full h-full object-cover" loading="lazy" />
+          <img src={assetUrl(thumbnail)} alt="" className="w-full h-full object-cover" loading="lazy" />
         </div>
       ) : (
         <div className="w-12 h-12 rounded-lg bg-surface-overlay border border-border/50 flex items-center justify-center shrink-0">

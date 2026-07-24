@@ -1,0 +1,8 @@
+{
+  "appId": "com.wellbeing.journal",
+  "appName": "Wellbeing",
+  "webDir": "dist",
+  "ios": {
+    "contentInset": "always"
+  }
+}

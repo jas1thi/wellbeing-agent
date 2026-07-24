@@ -1,6 +1,22 @@
 const isDev = import.meta.env.DEV
-const API_BASE = '/api'
-const ADK_BASE = isDev ? '/adk' : ''
+
+// Base URL of the hosted backend. Empty string = same-origin (web dev / when the
+// backend also serves the built frontend). For the iOS/Capacitor build, set
+// VITE_SERVER_URL to your deployed backend, e.g. https://wellbeing.onrender.com
+export const SERVER_URL = (import.meta.env.VITE_SERVER_URL || '').replace(/\/$/, '')
+
+const API_BASE = `${SERVER_URL}/api`
+// In web dev, the ADK agent is reached via the Vite proxy at /adk. Otherwise it
+// lives at the backend root (same host as the REST API).
+const ADK_BASE = SERVER_URL || (isDev ? '/adk' : '')
+
+// Build a fully-qualified URL for a journal image/asset served by the backend.
+export function assetUrl(relPath) {
+  if (!relPath) return relPath
+  if (/^https?:\/\//.test(relPath)) return relPath
+  const clean = relPath.replace(/^\.\//, '').replace(/^\//, '')
+  return `${SERVER_URL}/journals/${clean.replace(/^journals\//, '')}`
+}
 
 async function fetchJSON(path, opts = {}) {
   const res = await fetch(`${API_BASE}${path}`, opts)

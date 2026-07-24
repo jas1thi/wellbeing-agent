@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { assetUrl } from '../lib/api'
 
 export default function MarkdownRenderer({ content }) {
   return (
@@ -8,9 +9,7 @@ export default function MarkdownRenderer({ content }) {
         remarkPlugins={[remarkGfm]}
         components={{
           img: ({ src, alt, ...props }) => {
-            const resolvedSrc = src?.startsWith('http')
-              ? src
-              : `/journals/${src?.replace(/^\.\//, '')}`
+            const resolvedSrc = assetUrl(src)
             return (
               <img
                 src={resolvedSrc}

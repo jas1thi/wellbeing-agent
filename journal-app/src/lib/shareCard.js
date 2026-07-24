@@ -3,6 +3,8 @@
  * Returns a Blob URL for the generated PNG.
  */
 
+import { assetUrl } from './api'
+
 const CARD_W = 1080
 const CARD_H = 1350
 const PAD = 80
@@ -148,7 +150,7 @@ export async function generateShareCard(journal) {
   if (journal.thumbnail) {
     y += 10
     try {
-      const img = await loadImage(`/journals/${journal.thumbnail}`)
+      const img = await loadImage(assetUrl(journal.thumbnail))
       const imgW = CARD_W - PAD * 2
       const imgH = imgW * 0.6
       const imgRadius = 20
